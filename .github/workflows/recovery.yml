@@ -60,7 +60,7 @@ jobs:
        - name: Release recovery image
          uses: softprops/action-gh-release@v1
          env:
-          GITHUB_TOKEN: ${{ secrets.ARMOR8PRO }}
+          GITHUB_TOKEN: ${{ secrets.ARMORPRO }}
          with:
           tag_name: TWRP3.6.0_11.0
           name: TEST ALPHA
