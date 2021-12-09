@@ -15,7 +15,7 @@ on:
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp
   DEVICE: Armor_8_Pro
-  DT_LINK: https://github.com/lopestom/twrp_Armor_8_Pro.git
+  DT_LINK: https://github.com/lopestom/android_device_ulefone_Armor_8_Pro.git
   DT_PATH: device/ulefone/Armor_8_Pro
   TARGET: bootimage
   TZ: Asia/manila
