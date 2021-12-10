@@ -1,4 +1,3 @@
-ro.adb.secure=0
 #from device
 ro.product.board=Gotron-GQ3090RH5
 ro.board.platform=mt6771
@@ -28,3 +27,5 @@ ro.sys.usb.storage.type=mtp
 ro.treble.enabled=true
 ro.boot.dynamic_partitions=true
 sys.usb.ffs.aio_compat=true
+fbe.metadata.wrappedkey=true
+vendor.gatekeeper.disable_spu=true

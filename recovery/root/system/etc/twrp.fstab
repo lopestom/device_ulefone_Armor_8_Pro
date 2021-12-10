@@ -1,14 +1,14 @@
-#fstab file by lopestom for Ulefone Power Armor 13_TF2_V02 - S7S68B7.GQU.Ulefone.HB.HJ.AZVKPVFMXPE.20210720.V3.02
+#fstab file by lopestom for Ulefone Armor 8 Pro_RH5_V01 - GQ3090RH5_KSXP60_Ulefone_20210705_V01
 #
 # mount point    fstype  device                             device2                flags
 # Android 11 = /system and /vendor in "super" partition.
-/system		        ext4	/dev/block/mapper/system_a              flags=backup=1;wipeingui;logical;display="System_a"
-/vendor             ext4    /dev/block/mapper/vendor_a             flags=backup=1;wipeingui;logical;display="Vendor_a"
-/product            ext4    /dev/block/mapper/product_a            flags=backup=1;wipeingui;logical;display="Product_a"
+/system		        ext4	/dev/block/mapper/system_a              flags=backup=1;wipeingui
+/vendor             ext4    /dev/block/mapper/vendor_a             flags=backup=1;wipeingui
+/product            ext4    /dev/block/mapper/product_a            flags=backup=1;wipeingui
 
 # Images
-/system_image	    emmc  	/dev/block/mapper/system_a            flags=backup=1;flashimg=1;display="System Image"
-/vendor_image	    emmc  	/dev/block/mapper/vendor_a             flags=backup=1;flashimg=1;display="Vendor Image"
+/system_image	    emmc  	/dev/block/mapper/system_a            flags=backup=1;flashimg=1
+/vendor_image	    emmc  	/dev/block/mapper/vendor_a             flags=backup=1;flashimg=1
 /product_image	    emmc	   /dev/block/mapper/product_a             flags=backup=1;flashimg=1;display="Product Image"
 
 #
@@ -17,9 +17,9 @@
 /metadata             ext4    /dev/block/platform/bootdevice/by-name/md_udc         flags=backup=1;display="metadata"
 
 # Common partition
-#/data        ext4       /dev/block/platform/bootdevice/by-name/userdata       flags=backup=1;fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption
-/data            ext4    /dev/block/platform/bootdevice/by-name/userdata            flags=backup=1;encryptable=/dev/block/platform/bootdevice/by-name/metadata
-/boot_a            emmc    /dev/block/platform/bootdevice/by-name/boot_a               flags=backup=1;display="Boot_a";flashimg=1
+/data            ext4    dev/block/platform/bootdevice/by-name/userdata            flags=backup=1;encryptable=/dev/block/platform/bootdevice/by-name/metadata
+#/boot             emmc     /dev/block/by-name/boot                    flags=backup=1;display="Boot";flashimg=1
+/boot_a            emmc    /dev/block/platform/bootdevice/by-name/boot_a               flags=backup=1;display="Boot";flashimg=1
 /dtbo            emmc    /dev/block/platform/bootdevice/by-name/dtbo               flags=backup=1;display="Dtbo";flashimg=1
 /persist         ext4    /dev/block/platform/bootdevice/by-name/persist            flags=backup=1;display="Persist"
 /persist_image   emmc    /dev/block/platform/bootdevice/by-name/persist            flags=backup=1;display="Persist Image";flashimg=1
@@ -33,7 +33,7 @@
 /logo		    emmc	/dev/block/platform/bootdevice/by-name/logo             flags=display="logo";backup=1;flashimg=1
 /expdb		    emmc	/dev/block/platform/bootdevice/by-name/expdb             flags=display="expdb";backup=1
 /seccfg		    emmc	/dev/block/platform/bootdevice/by-name/seccfg           flags=display="SecCfg";backup=1
-/misc		    emmc	/dev/block/platform/bootdevice/by-name/para             flags=display="misc_para";backup=1;flashimg=1
+/misc		    emmc	/dev/block/platform/bootdevice/by-name/para             flags=display="para_misc";backup=1;flashimg=1
 /boot_para	    emmc	/dev/block/platform/bootdevice/by-name/boot_para        flags=display="boot_para";backup=1
 /proinfo	    emmc	/dev/block/platform/bootdevice/by-name/proinfo          flags=display="Proinfo";backup=1
 
@@ -60,8 +60,8 @@
 # Modem
 /md1img		    emmc	/dev/block/platform/bootdevice/by-name/md1img           flags=display="Modem";backup=1;flashimg=1
 /md1dsp         emmc    /dev/block/platform/bootdevice/by-name/md1dsp            flags=display="md1dsp";backup=1
-/md1arm7        emmc      /dev/block/platform/bootdevice/by-name/md1arm7
-/md3img         emmc      /dev/block/platform/bootdevice/by-name/md3img
+/md1arm7        emmc    /dev/block/platform/bootdevice/by-name/md1arm7
+/md3img         emmc    /dev/block/platform/bootdevice/by-name/md3img
 
 # System Control Processor (SCP)
 /scp1		    emmc	/dev/block/platform/bootdevice/by-name/scp1             flags=display="scp1";backup=1
@@ -81,9 +81,8 @@
 /spmfw		    emmc	/dev/block/platform/bootdevice/by-name/spmfw            flags=display="Spm";backup=1
 /sspm_1		    emmc	/dev/block/platform/bootdevice/by-name/sspm_1           flags=display="sspm_1";backup=1
 /sspm_2		    emmc	/dev/block/platform/bootdevice/by-name/sspm_2           flags=backup=1;subpartitionof=/sspm_1
-#/odmdtbo     emmc     /dev/block/platform/bootdevice/by-name/odmdtbo
+#/odmdtbo emmc /dev/block/platform/bootdevice/by-name/odmdtbo
 
 # External-Devices (SDCARD | OTG)
-/external_sd   auto    /dev/block/mmcblk0p1  /dev/block/mmcblk0   flags=display="MicroSD";fsflags=utf8;storage;wipeingui;removable
-/usb_otg       auto       /dev/block/sdd1      /dev/block/sdd     flags=display="Usb_Otg";fsflags=utf8;storage;wipeingui;removable
-
+/external_sd   auto    /dev/block/mmcblk0p1  /dev/block/mmcblk1p1   flags=display="MicroSD";fsflags=utf8;storage;wipeingui;removable
+/usb_otg       auto       /dev/block/sda1      /dev/block/sda     flags=display="Usb_Otg";fsflags=utf8;storage;wipeingui;removable

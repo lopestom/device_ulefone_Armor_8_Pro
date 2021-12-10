@@ -1,5 +1,5 @@
 # For MTK DRM integration:
-service teei_daemon /system/bin/teei_daemon \
+service teei_daemon /vendor/bin/teei_daemon \
     -r 020b0000000000000000000000000000 \
     -r 020f0000000000000000000000000000 \
     -r 06090000000000000000000000000000 \
@@ -21,10 +21,12 @@ service teei_daemon /system/bin/teei_daemon \
     -t 98fb95bcb4bf42d26473eae48690d7ea \
     -t 7b66512021214487ba710a51d7ea78fe \
     -t 09010000000000000000000000000000
+
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
+   # oneshot
 
 on boot
     chown system system /sys/bus/platform/devices/utos/dcih_notify_test
@@ -227,15 +229,9 @@ on fs
     chown system system /dev/emmcrpmb0
     chown system system /dev/utr_tui
     chmod 0660 /dev/utr_tui
-    enable beanpod_check_keybox_service
-    enable keymaster-4-0-beanpod
-    enable thh-2-0
-    enable soter-1-0
-    enable init_thh_service
     write /proc/bootprof "start teei_daemon (on fs)"
     start teei_daemon
     write /proc/bootprof "start teei_daemon end (on fs)"
-    setprop ro.hardware.gatekeeper beanpod
 
 on property:vendor.crypto.fake_encrypt=1 && property:vold.post_fs_data_done=1
     setprop vendor.soter.teei.crypto.state unencrypted

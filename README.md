@@ -1,6 +1,7 @@
-# Status --> ALPHA
-## TWRP device trees for Ulefone Armor 8 Pro - 6&8GB RAM / 128GB ROM
-Specs: https://www.gsmarena.com/ulefone_armor_8_pro-10898.php
+# TWRP device trees for Ulefone Armor 8 Pro - 6&8GB RAM - 128GB ROM
+#Specs => https://www.devicespecifications.com/en/model/21ea564d
+
+## Status --> ALPHA
 
 Current state of features (from [here](https://twrp.me/faq/OfficialMaintainer.html)):
 
@@ -45,7 +46,7 @@ Current state of features (from [here](https://twrp.me/faq/OfficialMaintainer.ht
 
 ```bash
 source build/envsetup.sh
-lunch twrp_Armor_8_Pro-eng
+lunch twrp_Armor_8-eng
 mka bootimage
 ```
 
