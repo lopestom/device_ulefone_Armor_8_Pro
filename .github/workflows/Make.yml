@@ -111,4 +111,4 @@ jobs:
         tag_name: ${{ github.run_id }}
         body: Recovery ALPHA TWRP3.6.0_11.0 for ${{ github.event.inputs.DEVICE_NAME }}
       env:
-         GITHUB_TOKEN: ${{ secrets.POWER5 }}
+         GITHUB_TOKEN: ${{ secrets.ARMORPRO }}
