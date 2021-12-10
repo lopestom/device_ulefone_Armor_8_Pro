@@ -114,4 +114,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.ARMORPRO }}
          with:
           tag_name: TWRP3.6.0_11.0
-          name: TEST ALPHA
+          name: TEST ALPHA $DEVICE
