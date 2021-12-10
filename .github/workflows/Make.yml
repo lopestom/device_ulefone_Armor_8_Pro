@@ -107,8 +107,8 @@ jobs:
         files: |
           workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/*.zip
           workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.DEVICE_TYPE }}.img
-        name: TEST ALPHA ${{ github.event.inputs.DEVICE_NAME }}-${{ github.run_id }}
-        tag_name: TWRP3.6.0_11.0 - ${{ github.run_id }}
+        name: ${{ github.event.inputs.DEVICE_NAME }}-${{ github.run_id }}
+        tag_name: ${{ github.run_id }}
         body: Recovery for ${{ github.event.inputs.DEVICE_NAME }}
       env:
-       GITHUB_TOKEN: ${{ secrets.ARMORPRO }}
+         GITHUB_TOKEN: ${{ secrets.ARMORPRO }}
